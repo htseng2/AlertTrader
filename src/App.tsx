@@ -17,11 +17,19 @@ function App() {
 
   return (
     <>
-      <div>
-        <button onClick={() => setInterval("D")}>Daily</button>
-        <button onClick={() => setInterval("W")}>Weekly</button>
-      </div>
-      <div className="chart-container">
+      <div
+        className="chart-container"
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          alignItems: "center",
+        }}
+      >
+        <div>
+          <button onClick={() => setInterval("D")}>Daily</button>
+          <button onClick={() => setInterval("W")}>Weekly</button>
+        </div>
         <AdvancedRealTimeChart
           symbol="FX_IDC:TWDJPY"
           interval={interval}
@@ -30,7 +38,7 @@ function App() {
           studies={myStudy}
           style="2"
           range="60M"
-          width="100%"
+          width="100vw"
         />
         <AdvancedRealTimeChart
           symbol="FX_IDC:TWDUSD"
@@ -40,7 +48,7 @@ function App() {
           studies={myStudy}
           style="2"
           range="60M"
-          width="100%"
+          width="100vw"
         />
         <AdvancedRealTimeChart
           symbol="FX_IDC:TWDEUR"
@@ -50,7 +58,7 @@ function App() {
           studies={myStudy}
           style="2"
           range="60M"
-          width="100%"
+          width="100vw"
         />
       </div>
     </>

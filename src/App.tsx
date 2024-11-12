@@ -1,6 +1,4 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import {
   AdvancedRealTimeChart,
@@ -23,36 +21,38 @@ function App() {
         <button onClick={() => setInterval("D")}>Daily</button>
         <button onClick={() => setInterval("W")}>Weekly</button>
       </div>
-      <AdvancedRealTimeChart
-        symbol="FX_IDC:TWDJPY"
-        interval={interval}
-        timezone="Asia/Taipei"
-        theme="dark"
-        studies={myStudy}
-        style="2"
-        range="60M"
-        width="600"
-      />
-      <AdvancedRealTimeChart
-        symbol="FX_IDC:TWDUSD"
-        interval={interval}
-        timezone="Asia/Taipei"
-        theme="dark"
-        studies={myStudy}
-        style="2"
-        range="60M"
-        width="600"
-      />
-      <AdvancedRealTimeChart
-        symbol="FX_IDC:TWDEUR"
-        interval={interval}
-        timezone="Asia/Taipei"
-        theme="dark"
-        studies={myStudy}
-        style="2"
-        range="60M"
-        width="600"
-      />
+      <div className="chart-container">
+        <AdvancedRealTimeChart
+          symbol="FX_IDC:TWDJPY"
+          interval={interval}
+          timezone="Asia/Taipei"
+          theme="dark"
+          studies={myStudy}
+          style="2"
+          range="60M"
+          width="100%"
+        />
+        <AdvancedRealTimeChart
+          symbol="FX_IDC:TWDUSD"
+          interval={interval}
+          timezone="Asia/Taipei"
+          theme="dark"
+          studies={myStudy}
+          style="2"
+          range="60M"
+          width="100%"
+        />
+        <AdvancedRealTimeChart
+          symbol="FX_IDC:TWDEUR"
+          interval={interval}
+          timezone="Asia/Taipei"
+          theme="dark"
+          studies={myStudy}
+          style="2"
+          range="60M"
+          width="100%"
+        />
+      </div>
     </>
   );
 }

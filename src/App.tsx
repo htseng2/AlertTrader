@@ -8,7 +8,9 @@ import {
 } from "react-ts-tradingview-widgets";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [interval, setInterval] = useState<
+    "D" | "1" | "3" | "5" | "15" | "30" | "60" | "120" | "180" | "240" | "W"
+  >("D");
   const myStudy: Studies[] = [
     "RSI@tv-basicstudies",
     "MACD@tv-basicstudies",
@@ -18,32 +20,38 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <button onClick={() => setInterval("D")}>Daily</button>
+        <button onClick={() => setInterval("W")}>Weekly</button>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
       <AdvancedRealTimeChart
         symbol="FX_IDC:TWDJPY"
-        interval="D"
+        interval={interval}
         timezone="Asia/Taipei"
         theme="dark"
         studies={myStudy}
-        style="1"
+        style="2"
+        range="60M"
+        width="600"
+      />
+      <AdvancedRealTimeChart
+        symbol="FX_IDC:TWDUSD"
+        interval={interval}
+        timezone="Asia/Taipei"
+        theme="dark"
+        studies={myStudy}
+        style="2"
+        range="60M"
+        width="600"
+      />
+      <AdvancedRealTimeChart
+        symbol="FX_IDC:TWDEUR"
+        interval={interval}
+        timezone="Asia/Taipei"
+        theme="dark"
+        studies={myStudy}
+        style="2"
+        range="60M"
+        width="600"
       />
     </>
   );
